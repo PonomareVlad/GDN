@@ -13,7 +13,7 @@ html, body {
     height: 100%;
     /*width: 100%;*/
 
-    font-family: SFProDisplay, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 
     pointer-events: none;
 
@@ -306,7 +306,7 @@ main {
     margin-top: 10px;
     padding: 20px;
     text-align: center;
-    font-family: SFCompactDisplay, sans-serif;
+    /*font-family: SFCompactDisplay, sans-serif;*/
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.7px;
@@ -342,7 +342,7 @@ main {
     padding: 2px 12px;
 
     color: #8e8e93;
-    font-family: SFProText, sans-serif;
+    /*font-family: SFProText, sans-serif;*/
     font-size: 10px;
     font-weight: 500;
     letter-spacing: -0.2px;
@@ -391,8 +391,8 @@ main {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-image: linear-gradient(to left, #e54114, #e8620b 47%, #f49b05);
-    font-family: SFProDisplay, sans-serif;
+    background-image: linear-gradient(to left, #e54114, #e8620b, #f49b05);
+    /*font-family: SFProDisplay, sans-serif;*/
     text-align: center;
     font-size: 26px;
     font-weight: 500;
@@ -403,6 +403,120 @@ main {
 
 .tab-bar .live:before {
     content: none;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #191926;
+    transform: translateX(-100%);
+    transition: transform 100ms;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+    transition: transform 300ms;
+}
+
+.side-menu.active ~ main {
+    position: fixed;
+}
+
+.side-menu .menu-header {
+    width: 100vw;
+    height: 50px;
+
+    position: absolute;
+    z-index: 150;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex !important;
+    padding-top: 0;
+    justify-content: space-between;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(25, 25, 38, 0.75);
+    border-bottom: .5px solid rgba(255, 255, 255, 0.15);
+}
+
+.standalone .side-menu .menu-header {
+    height: 70px;
+    padding-top: 20px;
+}
+
+.side-menu .menu-header button {
+    background: none;
+    width: auto;
+    height: 100%;
+    box-shadow: none;
+    padding: 0 15px;
+    color: #ff9500;
+    font-size: 17px;
+    line-height: 1.29;
+    letter-spacing: -0.4px;
+    text-align: center;
+}
+
+.side-menu .menu-header button:first-child {
+    text-align: left;
+}
+
+.side-menu .menu-header button:last-child {
+    text-align: right;
+}
+
+.side-menu .menu-header span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-menu .menu-body {
+    padding: 70px 0 90px;
+    overflow: scroll;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.standalone .side-menu .menu-body {
+    padding: 90px 0 20px;
+}
+
+.side-menu .menu-body .menu-section {
+
+}
+
+.side-menu .menu-body .menu-section > * {
+    padding: 0 10px;
+}
+
+.side-menu .menu-body .menu-section .title {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    margin: 10px 0;
+}
+
+.side-menu .menu-body .menu-section .menu-item {
+    /*font-family: "SF Pro Text", sans-serif;*/
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    line-height: 1.29;
+    letter-spacing: -0.4px;
+    height: 45px;
+    width: 100%;
+    padding: 0 15px;
+    border-bottom: 1px solid #323233;
+}
+
+.side-menu .menu-body .menu-section .menu-item.danger-item {
+    color: #ff3b30;
 }
 
 @keyframes covers-scroll {
